@@ -1,5 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  line-height: 1;
+}
+
+:root {
+  /* color values */
+  --bg-primary: #1d2021;
+  --bg-secondary: #373737;
+  --fill-generic: #ffffff;
+  --fill-primary: #458588;
+  --fill-secondary: #fabd2f;
+  --stroke-primary: #fbf1c7;
+  --stroke-secondary: #d5c4a1;
+  --stroke-tertiary: #928472;
+  --accent-primary: var(--fill-primary);
+  --accent-secondary: var(--fill-secondary);
+  --accent-tertiary: var(--stroke-tertiary);
+  --text-primary: var(--stroke-primary);
+  --text-secondary: var(--stroke-secondary);
+  --text-tertiary: var(--stroke-tertiary);
+  --btn-generic: var(--fill-generic);
+  --btn-primary: var(--fill-primary);
+  --btn-secondary: var(--fill-secondary);
+  --btn-text: var(--bg-primary);
+
+  /* size values */
+  --text-2xl: 6rem;
+  --text-xl: 4rem;
+  --text-lg: 1.75rem;
+  --text-md: 1.125rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --btn-lg: 3.125rem;
+  --btn-base: 1.875rem;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Italic.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins";
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  /* background-color: #1d2021; */
 }

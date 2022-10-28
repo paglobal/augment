@@ -18,8 +18,8 @@ func launchWebviewUI() {
 	photon.ListenForConnection(fileServerPort)
 	w := webview.New(false)
 	defer w.Destroy()
-	w.SetTitle("Hello Photon")
-	w.SetSize(480, 320, webview.HintNone)
+	w.SetTitle("Augment")
+	w.SetSize(1024, 576, webview.HintMin)
 	w.Navigate("http://127.0.0.1:53172/")
 	w.Run()
 }
