@@ -1,5 +1,30 @@
-import { adaptState } from "promethium-js";
+import { adaptEffect, ParticleEntity } from "promethium-js";
 
-export const [page, setPage] = adaptState("Home");
-export const [showOverlay, setShowOverlay] = adaptState(false);
-export const [showCommandPalette, setShowCommandPalette] = adaptState(false);
+const globalState = new ParticleEntity({
+  overlayVisibility: false,
+  commandPaletteVisibility: false,
+});
+
+export const [overlayVisibility, setOverlayVisibility] =
+  globalState.adaptParticle("overlayVisibility");
+export const [commandPaletteVisibility, setCommandPaletteVisibility] =
+  globalState.adaptParticle("commandPaletteVisibility");
+
+export function revealCommandPalette() {
+  setOverlayVisibility(!overlayVisibility());
+  setCommandPaletteVisibility(!commandPaletteVisibility());
+}
+
+const setModalVisibilities = [setCommandPaletteVisibility];
+
+adaptEffect(
+  () => {
+    if (overlayVisibility() === false) {
+      setModalVisibilities.forEach((setModalVisibility) =>
+        setModalVisibility(false)
+      );
+    }
+  },
+  [overlayVisibility],
+  { defer: true }
+);

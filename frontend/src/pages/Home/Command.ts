@@ -1,13 +1,19 @@
-import { Component, html } from "promethium-js";
+import { Component, h, html } from "promethium-js";
+import { Link, Path } from "../../router";
 
-const Command: Component<{ text: string; action?: () => void }> = (props) => {
+const Command: Component<{
+  text: string;
+  to: Path;
+}> = (props) => {
   return () =>
     html`
-      <button
-        class="text-[length:var(--text-md)] text-[color:var(--text-secondary)] mb-6"
-      >
-        ${props.text}
-      </button>
+      ${h(Link, {
+        to: props.to,
+        text: props.text,
+        class: () =>
+          `text-[length:var(--text-md)] text-center text-[color:var(--text-tertiary)] 
+           mb-6 hover:text-[color:var(--text-primary)] transition-all`,
+      })}
     `;
 };
 
